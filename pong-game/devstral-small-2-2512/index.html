@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game - Devstral Small 2-2512</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="menu" id="menu">
+            <h1>Pong Game</h1>
+            <p>Choose CPU Difficulty:</p>
+            <div class="difficulty-buttons">
+                <button id="easy-btn" class="difficulty-btn">Easy</button>
+                <button id="medium-btn" class="difficulty-btn">Medium</button>
+                <button id="hard-btn" class="difficulty-btn active">Hard</button>
+            </div>
+            <button id="start-btn" class="start-btn">Start Game</button>
+        </div>
+        <canvas id="pong-canvas"></canvas>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

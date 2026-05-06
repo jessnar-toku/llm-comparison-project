@@ -1,0 +1,1318 @@
+/* Aegis Grid: Adaptive Defense - Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0f18;
+    color: #e0e6ed;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    overflow: hidden;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   GAME CONTAINER
+   ============================================ */
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#gameCanvas {
+    flex: 1;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    cursor: crosshair;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+    transition: filter 0.3s ease;
+}
+
+#gameCanvas:hover {
+    filter: brightness(1.05);
+}
+
+/* ============================================
+   HUD LAYOUT
+   ============================================ */
+
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 12px 16px;
+    pointer-events: none;
+    z-index: 10;
+    background: linear-gradient(180deg, rgba(10, 15, 24, 0.9) 0%, rgba(10, 15, 24, 0.6) 70%, transparent 100%);
+    gap: 12px;
+}
+
+#hud > * {
+    pointer-events: auto;
+}
+
+#hud-left, #hud-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#hud-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   CORE HEALTH - MODERN DESIGN
+   ============================================ */
+
+#core-health {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px 16px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#core-health:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.health-bar {
+    width: 180px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#health-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #ff3333, #33ff33);
+    border-radius: 10px;
+    transition: width 0.5s ease, background 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#health-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+    animation: healthShine 3s infinite;
+}
+
+@keyframes healthShine {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+#health-text {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   RESOURCES - GLASSMORPHISM
+   ============================================ */
+
+#resources {
+    display: flex;
+    gap: 16px;
+    padding: 8px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#resources:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#gold, #energy {
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#gold { 
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+#energy { 
+    color: #00bfff;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+}
+
+/* Gold and Energy icons */
+#gold::before {
+    content: '💰';
+    font-size: 16px;
+}
+
+#energy::before {
+    content: '⚡';
+    font-size: 16px;
+}
+
+/* ============================================
+   WAVE INFO - MODERN CARD
+   ============================================ */
+
+#wave-info {
+    display: flex;
+    gap: 16px;
+    padding: 8px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#wave-info:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#wave-number {
+    font-weight: 700;
+    font-size: 14px;
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+}
+
+#wave-timer {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* ============================================
+   ABILITIES - MODERN BUTTONS
+   ============================================ */
+
+#abilities {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#abilities:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ability {
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.ability:hover:not(.disabled) {
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ability:active:not(.disabled) {
+    transform: translateY(0);
+}
+
+.ability-icon {
+    width: 100%;
+    height: 100%;
+    background: #333;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.ability:hover .ability-icon {
+    transform: scale(1.1);
+}
+
+#ability-airstrike .ability-icon { background: linear-gradient(135deg, #ff6600, #ff3300); }
+#ability-freeze .ability-icon { background: linear-gradient(135deg, #00ccff, #0088cc); }
+#ability-overclock .ability-icon { background: linear-gradient(135deg, #ffcc00, #ff9900); }
+
+.ability-cooldown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px;
+    color: #fff;
+    border-radius: 0 0 8px 8px;
+}
+
+.ability.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+.ability:not(.disabled):hover {
+    opacity: 0.9;
+}
+
+/* ============================================
+   TOWER SELECTION - MODERN PANEL
+   ============================================ */
+
+#hud-right {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 160px;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: linear-gradient(90deg, transparent 0%, rgba(10, 15, 24, 0.9) 20%, rgba(10, 15, 24, 0.95) 100%);
+    pointer-events: auto;
+}
+
+#tower-select {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tower-btn {
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.tower-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tower-btn:hover {
+    background: rgba(50, 50, 50, 0.8);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(-4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tower-btn:hover::before {
+    opacity: 1;
+}
+
+.tower-btn:active {
+    transform: translateX(-2px);
+}
+
+.tower-btn.selected {
+    background: rgba(0, 100, 255, 0.2);
+    border-color: #0066cc;
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.2);
+}
+
+.tower-btn.selected::before {
+    opacity: 1;
+    background: linear-gradient(90deg, transparent, #0066cc, transparent);
+}
+
+/* Tower cost display */
+.tower-btn::after {
+    content: attr(data-cost);
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: #ffd700;
+    font-weight: 700;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#upgrade-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #666;
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 20;
+    min-width: 300px;
+}
+
+#upgrade-menu h3 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#upgrade-path-1, #upgrade-path-2 {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+#upgrade-path-1 {
+    background: rgba(0, 100, 0, 0.2);
+}
+
+#upgrade-path-2 {
+    background: rgba(100, 0, 100, 0.2);
+}
+
+.upgrade-btn {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.upgrade-btn:hover {
+    background: #555;
+}
+
+#close-upgrade {
+    display: block;
+    margin: 16px auto 0;
+    padding: 8px 16px;
+    background: #cc0000;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+#wave-preview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #666;
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 20;
+    min-width: 300px;
+}
+
+#wave-preview h3 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#preview-content {
+    margin-bottom: 16px;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid #ff0000;
+    border-radius: 12px;
+    padding: 40px;
+    z-index: 30;
+    text-align: center;
+    min-width: 350px;
+}
+
+#game-over h2 {
+    font-size: 36px;
+    margin-bottom: 16px;
+    color: #ff0000;
+}
+
+#game-over p {
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+
+#restart-button {
+    padding: 12px 24px;
+    background: #0066cc;
+    border: 2px solid #0088ff;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#restart-button:hover {
+    background: #0088ff;
+}
+
+/* ============================================
+   UPGRADE MENU - MODERN MODAL
+   ============================================ */
+
+#upgrade-menu, #wave-preview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: rgba(15, 20, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+    z-index: 20;
+    min-width: 350px;
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+#upgrade-menu.visible, #wave-preview.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#upgrade-menu h3, #wave-preview h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#upgrade-path-1, #upgrade-path-2 {
+    margin: 12px 0;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#upgrade-path-1 {
+    background: rgba(0, 100, 0, 0.15);
+    border-color: rgba(0, 100, 0, 0.3);
+}
+
+#upgrade-path-1:hover {
+    background: rgba(0, 100, 0, 0.25);
+    border-color: rgba(0, 100, 0, 0.5);
+}
+
+#upgrade-path-2 {
+    background: rgba(100, 0, 100, 0.15);
+    border-color: rgba(100, 0, 100, 0.3);
+}
+
+#upgrade-path-2:hover {
+    background: rgba(100, 0, 100, 0.25);
+    border-color: rgba(100, 0, 100, 0.5);
+}
+
+.upgrade-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    background: linear-gradient(135deg, #2a2a3a, #1a1a2a);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.upgrade-btn:hover {
+    background: linear-gradient(135deg, #3a3a4a, #2a2a3a);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-btn:active {
+    transform: translateY(0);
+}
+
+#close-upgrade {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#close-upgrade:hover {
+    background: linear-gradient(135deg, #dd1111, #aa0000);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(200, 0, 0, 0.3);
+}
+
+/* ============================================
+   WAVE PREVIEW - ENHANCED
+   ============================================ */
+
+#wave-preview h3 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#preview-content {
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   GAME OVER - DRAMATIC OVERLAY
+   ============================================ */
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(10, 10, 20, 0.95);
+    border: 2px solid #ff0000;
+    border-radius: 20px;
+    padding: 50px;
+    z-index: 30;
+    text-align: center;
+    min-width: 400px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 100px rgba(255, 0, 0, 0.3);
+}
+
+#game-over.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#game-over h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    color: #ff0000;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#game-over p {
+    font-size: 20px;
+    margin-bottom: 32px;
+    color: #ccc;
+}
+
+#restart-button {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #0066cc, #0044aa);
+    border: 2px solid #0088ff;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#restart-button:hover {
+    background: linear-gradient(135deg, #0088ff, #0066cc);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 100, 255, 0.4);
+}
+
+#restart-button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   TOOLTIP STYLES - ENHANCED
+   ============================================ */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+#upgrade-menu.visible, #wave-preview.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#upgrade-menu h3, #wave-preview h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#upgrade-path-1, #upgrade-path-2 {
+    margin: 12px 0;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#upgrade-path-1 {
+    background: rgba(0, 100, 0, 0.15);
+    border-color: rgba(0, 100, 0, 0.3);
+}
+
+#upgrade-path-1:hover {
+    background: rgba(0, 100, 0, 0.25);
+    border-color: rgba(0, 100, 0, 0.5);
+}
+
+#upgrade-path-2 {
+    background: rgba(100, 0, 100, 0.15);
+    border-color: rgba(100, 0, 100, 0.3);
+}
+
+#upgrade-path-2:hover {
+    background: rgba(100, 0, 100, 0.25);
+    border-color: rgba(100, 0, 100, 0.5);
+}
+
+.upgrade-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    background: linear-gradient(135deg, #2a2a3a, #1a1a2a);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.upgrade-btn:hover {
+    background: linear-gradient(135deg, #3a3a4a, #2a2a3a);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-btn:active {
+    transform: translateY(0);
+}
+
+#close-upgrade {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#close-upgrade:hover {
+    background: linear-gradient(135deg, #dd1111, #aa0000);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(200, 0, 0, 0.3);
+}
+
+/* ============================================
+   WAVE PREVIEW - ENHANCED
+   ============================================ */
+
+#wave-preview h3 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#preview-content {
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   GAME OVER - DRAMATIC OVERLAY
+   ============================================ */
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(10, 10, 20, 0.95);
+    border: 2px solid #ff0000;
+    border-radius: 20px;
+    padding: 50px;
+    z-index: 30;
+    text-align: center;
+    min-width: 400px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 100px rgba(255, 0, 0, 0.3);
+}
+
+#game-over.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#game-over h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    color: #ff0000;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#game-over p {
+    font-size: 20px;
+    margin-bottom: 32px;
+    color: #ccc;
+}
+
+#restart-button {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #0066cc, #0044aa);
+    border: 2px solid #0088ff;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#restart-button:hover {
+    background: linear-gradient(135deg, #0088ff, #0066cc);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 100, 255, 0.4);
+}
+
+#restart-button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   TOOLTIP STYLES - ENHANCED
+   ============================================ */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+#upgrade-menu.visible, #wave-preview.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#upgrade-menu h3, #wave-preview h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#upgrade-path-1, #upgrade-path-2 {
+    margin: 12px 0;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#upgrade-path-1 {
+    background: rgba(0, 100, 0, 0.15);
+    border-color: rgba(0, 100, 0, 0.3);
+}
+
+#upgrade-path-1:hover {
+    background: rgba(0, 100, 0, 0.25);
+    border-color: rgba(0, 100, 0, 0.5);
+}
+
+#upgrade-path-2 {
+    background: rgba(100, 0, 100, 0.15);
+    border-color: rgba(100, 0, 100, 0.3);
+}
+
+#upgrade-path-2:hover {
+    background: rgba(100, 0, 100, 0.25);
+    border-color: rgba(100, 0, 100, 0.5);
+}
+
+.upgrade-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    background: linear-gradient(135deg, #2a2a3a, #1a1a2a);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.upgrade-btn:hover {
+    background: linear-gradient(135deg, #3a3a4a, #2a2a3a);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-btn:active {
+    transform: translateY(0);
+}
+
+#close-upgrade {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#close-upgrade:hover {
+    background: linear-gradient(135deg, #dd1111, #aa0000);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(200, 0, 0, 0.3);
+}
+
+/* ============================================
+   WAVE PREVIEW - ENHANCED
+   ============================================ */
+
+#wave-preview h3 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#preview-content {
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   GAME OVER - DRAMATIC OVERLAY
+   ============================================ */
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(10, 10, 20, 0.95);
+    border: 2px solid #ff0000;
+    border-radius: 20px;
+    padding: 50px;
+    z-index: 30;
+    text-align: center;
+    min-width: 400px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 100px rgba(255, 0, 0, 0.3);
+}
+
+#game-over.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#game-over h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    color: #ff0000;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#game-over p {
+    font-size: 20px;
+    margin-bottom: 32px;
+    color: #ccc;
+}
+
+#restart-button {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #0066cc, #0044aa);
+    border: 2px solid #0088ff;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#restart-button:hover {
+    background: linear-gradient(135deg, #0088ff, #0066cc);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 100, 255, 0.4);
+}
+
+#restart-button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   TOOLTIP STYLES - ENHANCED
+   ============================================ */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+#upgrade-menu.visible, #wave-preview.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#upgrade-menu h3, #wave-preview h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#upgrade-path-1, #upgrade-path-2 {
+    margin: 12px 0;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#upgrade-path-1 {
+    background: rgba(0, 100, 0, 0.15);
+    border-color: rgba(0, 100, 0, 0.3);
+}
+
+#upgrade-path-1:hover {
+    background: rgba(0, 100, 0, 0.25);
+    border-color: rgba(0, 100, 0, 0.5);
+}
+
+#upgrade-path-2 {
+    background: rgba(100, 0, 100, 0.15);
+    border-color: rgba(100, 0, 100, 0.3);
+}
+
+#upgrade-path-2:hover {
+    background: rgba(100, 0, 100, 0.25);
+    border-color: rgba(100, 0, 100, 0.5);
+}
+
+.upgrade-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    background: linear-gradient(135deg, #2a2a3a, #1a1a2a);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.upgrade-btn:hover {
+    background: linear-gradient(135deg, #3a3a4a, #2a2a3a);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-btn:active {
+    transform: translateY(0);
+}
+
+#close-upgrade {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#close-upgrade:hover {
+    background: linear-gradient(135deg, #dd1111, #aa0000);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(200, 0, 0, 0.3);
+}
+
+/* ============================================
+   WAVE PREVIEW - ENHANCED
+   ============================================ */
+
+#wave-preview h3 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#preview-content {
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   GAME OVER - DRAMATIC OVERLAY
+   ============================================ */
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(10, 10, 20, 0.95);
+    border: 2px solid #ff0000;
+    border-radius: 20px;
+    padding: 50px;
+    z-index: 30;
+    text-align: center;
+    min-width: 400px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 100px rgba(255, 0, 0, 0.3);
+}
+
+#game-over.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#game-over h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    color: #ff0000;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#game-over p {
+    font-size: 20px;
+    margin-bottom: 32px;
+    color: #ccc;
+}
+
+#restart-button {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #0066cc, #0044aa);
+    border: 2px solid #0088ff;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#restart-button:hover {
+    background: linear-gradient(135deg, #0088ff, #0066cc);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 100, 255, 0.4);
+}
+
+#restart-button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   TOOLTIP STYLES - ENHANCED
+   ============================================ */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}

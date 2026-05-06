@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.game-container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    letter-spacing: 10px;
+}
+
+.difficulty-selector {
+    margin-bottom: 30px;
+}
+
+.difficulty-selector h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #00d4ff;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-easy {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-easy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+}
+
+.btn-intermediate {
+    background: linear-gradient(135deg, #FF9800 0%, #f57c00 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.btn-intermediate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+}
+
+.btn-hard {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.btn-hard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 67, 54, 0.5);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.5);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 6px 20px rgba(156, 39, 176, 0.5);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.game-ui {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.score-board {
+    font-size: 2em;
+    font-weight: bold;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.game-controls {
+    display: flex;
+    gap: 15px;
+}
+
+#pongCanvas {
+    border: 3px solid #00d4ff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+    background-color: #0a0a15;
+    display: block;
+    margin: 0 auto;
+}
+
+.instructions {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.instructions h3 {
+    color: #00d4ff;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.instructions p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+    min-height: 40px;
+    color: #00d4ff;
+}
+
+.message.winner {
+    color: #4CAF50 !important;
+    animation: pulse 1s infinite;
+}
+
+.message.loser {
+    color: #f44336 !important;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.selected-difficulty {
+    border-color: #FF9800 !important;
+    box-shadow: 0 0 20px rgba(255, 152, 0, 0.5) !important;
+}

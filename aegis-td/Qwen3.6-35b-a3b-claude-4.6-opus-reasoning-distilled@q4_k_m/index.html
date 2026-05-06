@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Grid: Adaptive Defense</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="hud">
+            <div id="hud-left">
+                <div id="core-health">
+                    <div class="health-bar">
+                        <div id="health-fill"></div>
+                    </div>
+                    <span id="health-text">Core: 100%</span>
+                </div>
+                <div id="resources">
+                    <span id="gold">Gold: 100</span>
+                    <span id="energy">Energy: 50</span>
+                </div>
+                <div id="wave-info">
+                    <span id="wave-number">Wave: 1</span>
+                    <span id="wave-timer"></span>
+                </div>
+            </div>
+            <div id="hud-center">
+                <div id="abilities">
+                    <div class="ability" id="ability-airstrike" title="Airstrike - AoE Damage">
+                        <div class="ability-icon"></div>
+                        <div class="ability-cooldown">0</div>
+                    </div>
+                    <div class="ability" id="ability-freeze" title="Freeze - Slow All Enemies">
+                        <div class="ability-icon"></div>
+                        <div class="ability-cooldown">0</div>
+                    </div>
+                    <div class="ability" id="ability-overclock" title="Overclock - Boost Tower Speed">
+                        <div class="ability-icon"></div>
+                        <div class="ability-cooldown">0</div>
+                    </div>
+                </div>
+            </div>
+            <div id="hud-right">
+                <div id="tower-select">
+                    <button class="tower-btn" data-type="basic" title="Basic Tower - Single Target">Basic</button>
+                    <button class="tower-btn" data-type="splash" title="Splash Tower - AoE Damage">Splash</button>
+                    <button class="tower-btn" data-type="slow" title="Slow Tower - Debuff">Slow</button>
+                    <button class="tower-btn" data-type="sniper" title="Sniper Tower - Long Range">Sniper</button>
+                    <button class="tower-btn" data-type="support" title="Support Tower - Buffs Nearby">Support</button>
+                </div>
+            </div>
+        </div>
+        <div id="upgrade-menu" class="hidden">
+            <h3>Upgrade Tower</h3>
+            <div id="upgrade-path-1"></div>
+            <div id="upgrade-path-2"></div>
+            <button id="close-upgrade">Close</button>
+        </div>
+        <div id="wave-preview" class="hidden">
+            <h3>Next Wave Preview</h3>
+            <div id="preview-content"></div>
+        </div>
+        <div id="game-over" class="hidden">
+            <h2 id="game-over-title">Game Over</h2>
+            <p id="game-over-text"></p>
+            <button id="restart-button">Play Again</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

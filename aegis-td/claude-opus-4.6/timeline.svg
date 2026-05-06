@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d1f"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="420" fill="url(#bg)" rx="8"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#00e5ff" font-size="16" font-weight="bold" letter-spacing="2">AEGIS GRID — DEVELOPMENT TIMELINE</text>
+
+  <!-- Timeline line -->
+  <line x1="80" y1="80" x2="820" y2="80" stroke="#3a3a6a" stroke-width="2"/>
+
+  <!-- Iteration markers -->
+  <!-- Iter 1 -->
+  <circle cx="130" cy="80" r="8" fill="#42a5f5" filter="url(#glow)"/>
+  <text x="130" y="65" text-anchor="middle" fill="#90caf9" font-size="10">Iter 1</text>
+
+  <!-- Iter 2 -->
+  <circle cx="270" cy="80" r="8" fill="#ef5350" filter="url(#glow)"/>
+  <text x="270" y="65" text-anchor="middle" fill="#ffcdd2" font-size="10">Iter 2</text>
+
+  <!-- Iter 3 -->
+  <circle cx="410" cy="80" r="8" fill="#ffd740" filter="url(#glow)"/>
+  <text x="410" y="65" text-anchor="middle" fill="#fff8e1" font-size="10">Iter 3</text>
+
+  <!-- Iter 4 -->
+  <circle cx="550" cy="80" r="8" fill="#66bb6a" filter="url(#glow)"/>
+  <text x="550" y="65" text-anchor="middle" fill="#c8e6c9" font-size="10">Iter 4</text>
+
+  <!-- Iter 5 -->
+  <circle cx="690" cy="80" r="8" fill="#ab47bc" filter="url(#glow)"/>
+  <text x="690" y="65" text-anchor="middle" fill="#e1bee7" font-size="10">Iter 5</text>
+
+  <!-- Iter 6 -->
+  <circle cx="820" cy="80" r="8" fill="#26c6da" filter="url(#glow)"/>
+  <text x="820" y="65" text-anchor="middle" fill="#b2ebf2" font-size="10">Iter 6</text>
+
+  <!-- Iteration 1 details -->
+  <rect x="60" y="100" width="140" height="130" rx="4" fill="#12122a" stroke="#42a5f5" stroke-width="1"/>
+  <text x="130" y="118" text-anchor="middle" fill="#42a5f5" font-size="11" font-weight="bold">Full Build</text>
+  <text x="70" y="136" fill="#aaa" font-size="9">• 5 tower types</text>
+  <text x="70" y="150" fill="#aaa" font-size="9">• 6 enemy types</text>
+  <text x="70" y="164" fill="#aaa" font-size="9">• A* pathfinding</text>
+  <text x="70" y="178" fill="#aaa" font-size="9">• Wave generation</text>
+  <text x="70" y="192" fill="#aaa" font-size="9">• AI Director</text>
+  <text x="70" y="206" fill="#aaa" font-size="9">• Save/Load</text>
+  <text x="70" y="220" fill="#aaa" font-size="9">• 3 abilities</text>
+
+  <!-- Iteration 2 details -->
+  <rect x="200" y="100" width="140" height="130" rx="4" fill="#12122a" stroke="#ef5350" stroke-width="1"/>
+  <text x="270" y="118" text-anchor="middle" fill="#ef5350" font-size="11" font-weight="bold">Blocker Fixes</text>
+  <text x="210" y="136" fill="#aaa" font-size="9">• BinaryHeap A*</text>
+  <text x="210" y="150" fill="#aaa" font-size="9">• No per-frame pathfind</text>
+  <text x="210" y="164" fill="#aaa" font-size="9">• Spawn timer fix</text>
+  <text x="210" y="178" fill="#aaa" font-size="9">• PATH-only walking</text>
+  <text x="210" y="192" fill="#aaa" font-size="9">• Wave cache</text>
+  <text x="210" y="206" fill="#aaa" font-size="9">• Support stacking</text>
+  <text x="210" y="220" fill="#aaa" font-size="9">• Dead code cleanup</text>
+
+  <!-- Iteration 3 details -->
+  <rect x="340" y="100" width="140" height="90" rx="4" fill="#12122a" stroke="#ffd740" stroke-width="1"/>
+  <text x="410" y="118" text-anchor="middle" fill="#ffd740" font-size="11" font-weight="bold">Entry/Exit Bug</text>
+  <text x="350" y="136" fill="#aaa" font-size="9">• ENTRY overwritten</text>
+  <text x="350" y="150" fill="#aaa" font-size="9">  by addPath() loop</text>
+  <text x="350" y="164" fill="#aaa" font-size="9">• Moved assignments</text>
+  <text x="350" y="178" fill="#aaa" font-size="9">  after path gen</text>
+
+  <!-- Iteration 4 details -->
+  <rect x="480" y="100" width="140" height="90" rx="4" fill="#12122a" stroke="#66bb6a" stroke-width="1"/>
+  <text x="550" y="118" text-anchor="middle" fill="#66bb6a" font-size="11" font-weight="bold">Start Wave Fix</text>
+  <text x="490" y="136" fill="#aaa" font-size="9">• Button stayed</text>
+  <text x="490" y="150" fill="#aaa" font-size="9">  disabled after quit</text>
+  <text x="490" y="164" fill="#aaa" font-size="9">• Re-enable in</text>
+  <text x="490" y="178" fill="#aaa" font-size="9">  newGame()</text>
+
+  <!-- Iteration 5 details -->
+  <rect x="620" y="100" width="140" height="110" rx="4" fill="#12122a" stroke="#ab47bc" stroke-width="1"/>
+  <text x="690" y="118" text-anchor="middle" fill="#ab47bc" font-size="11" font-weight="bold">Balance v1</text>
+  <text x="630" y="136" fill="#aaa" font-size="9">• Gold: 150→250</text>
+  <text x="630" y="150" fill="#aaa" font-size="9">• Basic HP: 60→35</text>
+  <text x="630" y="164" fill="#aaa" font-size="9">• Enemy count</text>
+  <text x="630" y="178" fill="#aaa" font-size="9">  formula reduced</text>
+  <text x="630" y="192" fill="#aaa" font-size="9">• Wave 1 beatable</text>
+
+  <!-- Iteration 6 details -->
+  <rect x="750" y="100" width="140" height="130" rx="4" fill="#12122a" stroke="#26c6da" stroke-width="1"/>
+  <text x="820" y="118" text-anchor="middle" fill="#26c6da" font-size="11" font-weight="bold">Balance v2</text>
+  <text x="760" y="136" fill="#aaa" font-size="9">• Swarm: 3-5→2-3</text>
+  <text x="760" y="150" fill="#aaa" font-size="9">• HP scale: 15%→10%</text>
+  <text x="760" y="164" fill="#aaa" font-size="9">• Income: 5g→10g</text>
+  <text x="760" y="178" fill="#aaa" font-size="9">• Rewards increased</text>
+  <text x="760" y="192" fill="#aaa" font-size="9">• Swarm HP: 25→20</text>
+  <text x="760" y="206" fill="#aaa" font-size="9">• Wave 2 beatable</text>
+
+  <!-- Category legend -->
+  <rect x="60" y="360" width="820" height="50" rx="4" fill="#0a0a15" stroke="#2a2a4a" stroke-width="1"/>
+  <circle cx="100" cy="385" r="6" fill="#42a5f5"/>
+  <text x="115" y="389" fill="#aaa" font-size="10">Feature</text>
+  <circle cx="210" cy="385" r="6" fill="#ef5350"/>
+  <text x="225" y="389" fill="#aaa" font-size="10">Performance</text>
+  <circle cx="340" cy="385" r="6" fill="#ffd740"/>
+  <text x="355" y="389" fill="#aaa" font-size="10">Crash Fix</text>
+  <circle cx="460" cy="385" r="6" fill="#66bb6a"/>
+  <text x="475" y="389" fill="#aaa" font-size="10">UI Fix</text>
+  <circle cx="560" cy="385" r="6" fill="#ab47bc"/>
+  <text x="575" y="389" fill="#aaa" font-size="10">Balance</text>
+  <circle cx="670" cy="385" r="6" fill="#26c6da"/>
+  <text x="685" y="389" fill="#aaa" font-size="10">Balance</text>
+
+  <!-- Stats -->
+  <text x="450" y="320" text-anchor="middle" fill="#7986cb" font-size="11">6 iterations · 3 bug fixes · 2 balance passes · ~2100 lines of JS</text>
+</svg>

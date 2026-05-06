@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - WASD Controls</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🐍 Snake Game</h1>
+        <p class="instructions">Use <strong>WASD</strong> keys to control the snake</p>
+        
+        <div id="score">Score: 0</div>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        
+        <div id="overlay" class="hidden">
+            <h2 id="overlayTitle">Game Over!</h2>
+            <p>Your Score: <span id="finalScore">0</span></p>
+            <button id="restartBtn">Play Again</button>
+        </div>
+        
+        <div id="startScreen" class="visible">
+            <p>Welcome to Snake!</p>
+            <p>WASD - Move | Arrow Keys - Restart</p>
+            <p>Press any arrow key to start playing</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

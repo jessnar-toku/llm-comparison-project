@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Grid: Adaptive Defense</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <h1>AEGIS GRID</h1>
+        <p>Adaptive Defense System Initializing...</p>
+        <div class="progress-bar"><div class="fill"></div></div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="main-menu" style="display:none;">
+        <div class="menu-content">
+            <h1>AEGIS GRID</h1>
+            <p class="subtitle">Adaptive Defense System</p>
+            <button id="start-game-btn" class="btn-primary">Begin Defense</button>
+            <button id="load-save-btn" class="btn-secondary">Load Previous Session</button>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container" style="display:none;">
+        <!-- Canvas Layer -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- HUD Overlay -->
+        <div id="hud">
+            <div class="hud-section hud-left">
+                <div class="core-health">
+                    <label>Energy Core</label>
+                    <div class="health-bar"><div class="fill" id="core-health-fill"></div></div>
+                    <span id="core-health-value">100%</span>
+                </div>
+            </div>
+
+            <div class="hud-section hud-center">
+                <div class="wave-info">
+                    <span id="wave-number">Wave 1</span>
+                    <span class="enemy-count" id="enemy-count"></span>
+                </div>
+                <div class="abilities-bar">
+                    <button data-ability="airstrike" class="ability-btn" disabled title="Airstrike: AoE Damage">✦ Strike</button>
+                    <button data-ability="freeze" class="ability-btn" disabled title="Freeze: Slow All Enemies">❄ Freeze</button>
+                    <button data-ability="overclock" class="ability-btn" disabled title="Overclock: Boost Tower Speed">⚡ Boost</button>
+                </div>
+            </div>
+
+            <div class="hud-section hud-right">
+                <div class="resources">
+                    <div class="resource gold"><span id="gold-value">100</span></div>
+                    <div class="resource energy"><span id="energy-value">50</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tower Selection Panel -->
+        <div id="tower-panel" style="display:none;">
+            <h3>Select Tower Type</h3>
+            <div class="tower-options"></div>
+        </div>
+
+        <!-- Tower Upgrade Menu -->
+        <div id="upgrade-menu" style="display:none;">
+            <h3>Tower Upgrades</h3>
+            <div class="upgrade-tree"></div>
+        </div>
+
+        <!-- Wave Preview -->
+        <div id="wave-preview" style="display:none;">
+            <h4>Next Wave Preview</h4>
+            <div class="preview-content"></div>
+        </div>
+
+        <!-- Pause Overlay -->
+        <div id="pause-overlay" style="display:none;">
+            <button id="resume-btn">Resume</button>
+            <button id="save-game-btn">Save Game</button>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="game-over" style="display:none;">
+            <h2 class="result-title"></h2>
+            <p class="result-stats"></p>
+            <button id="restart-btn">Restart</button>
+            <button id="menu-btn">Return to Menu</button>
+        </div>
+
+        <!-- Map Editor Toggle -->
+        <div id="map-editor-toggle" style="display:none;">
+            <button id="toggle-map-editor">Map Editor Mode</button>
+        </div>
+
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

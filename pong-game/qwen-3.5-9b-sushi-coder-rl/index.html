@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game - Multi-Level AI Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1>🏓 PONG GAME</h1>
+            <p class="subtitle">AI Challenge - Choose your difficulty!</p>
+        </header>
+
+        <!-- Game Info Panel -->
+        <div class="info-panel">
+            <div class="score-display">
+                <span id="player-score" class="score player">0</span>
+                <span>-</span>
+                <span id="cpu-score" class="score cpu">0</span>
+            </div>
+            
+            <div class="difficulty-controls">
+                <label for="difficulty-select">Select Difficulty:</label>
+                <select id="difficulty-select">
+                    <option value="easy">Easy (60% Speed)</option>
+                    <option value="intermediate" selected>Intermediate (80% Speed)</option>
+                    <option value="hard">Hard (95% Speed)</option>
+                </select>
+            </div>
+
+            <button id="start-btn" class="action-btn">Start Game</button>
+        </div>
+
+        <!-- Main Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>🏆 GAME OVER</h2>
+                <p id="winnerText">Player Wins!</p>
+                <p class="final-score"><span id="player-final">0</span> - <span id="cpu-final">0</span></p>
+                <button class="modal-btn" onclick="resetGame()">Play Again</button>
+                <button class="modal-btn secondary" onclick="changeDifficulty()">Change Difficulty</button>
+            </div>
+        </div>
+
+        <!-- Controls Info -->
+        <footer class="controls-info">
+            <p><strong>Controls:</strong> Use ⬆️ UP Arrow or WASD to move your paddle (Left)</p>
+            <p><strong>Tips:</strong> Hard mode is designed to be challenging! Adjust difficulty as needed.</p>
+        </footer>
+    </div>
+
+    <!-- Game Logic -->
+    <script src="game.js"></script>
+</body>
+</html>

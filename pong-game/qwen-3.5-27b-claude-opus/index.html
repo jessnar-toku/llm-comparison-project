@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game - Three Difficulty Levels</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <header>
+            <h1>🏓 PONG 🏓</h1>
+            <p class="subtitle">Classic Arcade Action</p>
+        </header>
+
+        <main class="game-container">
+            <!-- Difficulty Selection -->
+            <section class="difficulty-section">
+                <h2>Select Your Challenge</h2>
+                <div class="difficulty-buttons">
+                    <button type="button" id="easyBtn" class="btn-difficulty btn-easy"
+                            data-difficulty="easy">
+                        🟢 Easy
+                    </button>
+                    <button type="button" id="mediumBtn" class="btn-difficulty btn-medium"
+                            data-difficulty="medium">
+                        🟡 Intermediate
+                    </button>
+                    <button type="button" id="hardBtn" class="btn-difficulty btn-hard"
+                            data-difficulty="hard">
+                        🔴 Hard
+                    </button>
+                </div>
+            </section>
+
+            <!-- Game Canvas -->
+            <section class="canvas-section">
+                <div class="score-display">
+                    <span class="score-player" id="playerScore">0</span>
+                    <span class="score-separator">:</span>
+                    <span class="score-cpu" id="cpuScore">0</span>
+                </div>
+                <canvas id="gameCanvas"></canvas>
+            </section>
+
+            <!-- Game Controls -->
+            <section class="controls-section">
+                <button type="button" id="startBtn" class="btn-action btn-start">▶ Start Game</button>
+                <button type="button" id="resetBtn" class="btn-action btn-reset" disabled>🔄 Reset</button>
+            </section>
+
+            <!-- Status Message -->
+            <div id="statusMessage" class="status-message"></div>
+
+            <!-- Instructions -->
+            <section class="instructions-section">
+                <h3>🎮 How to Play</h3>
+                <ul>
+                    <li><strong>Mouse:</strong> Move up and down to control your paddle (left side)</li>
+                    <li><strong>Keyboard:</strong> Use <kbd>W</kbd>/<kbd>S</kbd> or <kbd>↑</kbd>/<kbd>↓</kbd> arrows</li>
+                    <li>First to <strong>5 points</strong> wins!</li>
+                </ul>
+            </section>
+
+            <!-- Difficulty Info -->
+            <section class="difficulty-info">
+                <h3>📊 CPU Levels Explained</h3>
+                <div class="info-cards">
+                    <div class="info-card card-easy">
+                        <span class="card-title">Easy</span>
+                        <p>Sloppy & Predictable</p>
+                    </div>
+                    <div class="info-card card-medium">
+                        <span class="card-title">Intermediate</span>
+                        <p>Responsive but Beatable</p>
+                    </div>
+                    <div class="info-card card-hard">
+                        <span class="card-title">Hard</span>
+                        <p>Nearly Perfect AI</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ using HTML5 Canvas & JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

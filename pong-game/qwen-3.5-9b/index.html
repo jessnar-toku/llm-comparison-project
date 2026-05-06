@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game - 3 Difficulty Levels</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>PONG</h1>
+        
+        <div class="difficulty-selector">
+            <h2>Select Difficulty</h2>
+            <button id="easyBtn" class="btn btn-easy">Easy</button>
+            <button id="intermediateBtn" class="btn btn-intermediate">Intermediate</button>
+            <button id="hardBtn" class="btn btn-hard">Hard</button>
+        </div>
+
+        <div class="game-ui">
+            <div class="score-board">
+                <span id="playerScore">0</span>
+                <span id="cpuScore">0</span>
+            </div>
+            
+            <div class="game-controls">
+                <button id="startBtn" class="btn btn-primary">Start Game</button>
+                <button id="resetBtn" class="btn btn-secondary" disabled>Reset</button>
+            </div>
+        </div>
+
+        <canvas id="pongCanvas" width="800" height="500"></canvas>
+        
+        <div class="instructions">
+            <h3>Controls:</h3>
+            <p><strong>Mouse:</strong> Move your mouse up/down to control the left paddle</p>
+            <p><strong>Keyboard:</strong> Use W/S or Up/Down arrows to control the left paddle</p>
+        </div>
+
+        <div id="gameMessage" class="message"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

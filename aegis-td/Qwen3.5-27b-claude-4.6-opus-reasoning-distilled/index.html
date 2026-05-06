@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Grid: Adaptive Defense</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Game Canvas -->
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- UI Overlay -->
+        <div id="ui-layer">
+            <!-- Top HUD -->
+            <div id="top-hud">
+                <div class="resource-display">
+                    <span class="health-core">❤️ Core: <span id="core-health">100</span>%</span>
+                    <span class="gold">🟡 Gold: <span id="gold-display">150</span></span>
+                    <span class="energy">⚡ Energy: <span id="energy-display">0/100</span></span>
+                </div>
+                <div class="wave-info">
+                    <span>📊 Wave: <span id="wave-number">0</span>/<span id="max-waves">50</span></span>
+                    <span>👾 Enemies: <span id="enemies-remaining">0</span></span>
+                    <span id="wave-timer"></span>
+                </div>
+            </div>
+
+            <!-- Left Sidebar - Tower Selection -->
+            <div id="tower-sidebar">
+                <h3>🏰 Towers</h3>
+                <div class="tower-button" data-type="basic" title="Basic Tower - Single target damage">
+                    <span class="tower-icon">⚔️</span>
+                    <span class="tower-name">Basic</span>
+                    <span class="tower-cost">🟡 50</span>
+                </div>
+                <div class="tower-button" data-type="splash" title="Splash Tower - Area damage">
+                    <span class="tower-icon">💥</span>
+                    <span class="tower-name">Splash</span>
+                    <span class="tower-cost">🟡 120</span>
+                </div>
+                <div class="tower-button" data-type="slow" title="Slow Tower - Slows enemies">
+                    <span class="tower-icon">❄️</span>
+                    <span class="tower-name">Slow</span>
+                    <span class="tower-cost">🟡 80</span>
+                </div>
+                <div class="tower-button" data-type="sniper" title="Sniper Tower - Long range, high damage">
+                    <span class="tower-icon">🎯</span>
+                    <span class="tower-name">Sniper</span>
+                    <span class="tower-cost">🟡 200</span>
+                </div>
+                <div class="tower-button" data-type="support" title="Support Tower - Buffs nearby towers">
+                    <span class="tower-icon">✨</span>
+                    <span class="tower-name">Support</span>
+                    <span class="tower-cost">🟡 150</span>
+                </div>
+                
+                <!-- Targeting Mode -->
+                <h3>🎯 Targeting</h3>
+                <div class="targeting-buttons">
+                    <button class="target-btn active" data-mode="first">First</button>
+                    <button class="target-btn" data-mode="last">Last</button>
+                    <button class="target-btn" data-mode="strongest">Strongest</button>
+                    <button class="target-btn" data-mode="weakest">Weakest</button>
+                </div>
+
+                <!-- Abilities -->
+                <h3>⚡ Abilities</h3>
+                <div class="ability-button" data-ability="airstrike" title="Airstrike - AoE damage (50 energy)">
+                    <span class="ability-icon">💣</span>
+                    <span class="ability-name">Strike</span>
+                </div>
+                <div class="ability-button" data-ability="freeze" title="Freeze All - Slow all enemies (40 energy)">
+                    <span class="ability-icon">🧊</span>
+                    <span class="ability-name">Freeze</span>
+                </div>
+                <div class="ability-button" data-ability="overclock" title="Overclock - Boost tower speed (60 energy)">
+                    <span class="ability-icon">⚡</span>
+                    <span class="ability-name">Clock</span>
+                </div>
+            </div>
+
+            <!-- Bottom Controls -->
+            <div id="bottom-controls">
+                <button id="start-wave-btn" class="control-button">▶️ Start Wave</button>
+                <button id="pause-btn" class="control-button">⏸️ Pause</button>
+                <button id="speed-btn" class="control-button">📍 1x Speed</button>
+                <button id="save-btn" class="control-button">💾 Save</button>
+                <button id="load-btn" class="control-button">📂 Load</button>
+                <button id="reset-btn" class="control-button">🔄 Reset</button>
+            </div>
+
+            <!-- Upgrade Panel -->
+            <div id="upgrade-panel" class="hidden">
+                <h3>⬆️ Upgrade Tower</h3>
+                <div id="upgrade-options"></div>
+                <button id="close-upgrade-btn" class="control-button">❌ Close</button>
+            </div>
+
+            <!-- Wave Preview -->
+            <div id="wave-preview" class="hidden">
+                <h3>📋 Next Wave</h3>
+                <div id="wave-enemies"></div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="hidden">
+            <h1>GAME OVER</h1>
+            <p>You survived <span id="final-wave">0</span> waves!</p>
+            <button id="restart-btn" class="control-button">🔄 Try Again</button>
+        </div>
+
+        <!-- Victory Screen -->
+        <div id="victory-screen" class="hidden">
+            <h1>🎉 VICTORY! 🎉</h1>
+            <p>You defended the core against all waves!</p>
+            <button id="play-again-btn" class="control-button">▶️ Play Again</button>
+        </div>
+
+        <!-- Tooltip -->
+        <div id="tooltip"></div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

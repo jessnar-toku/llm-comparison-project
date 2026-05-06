@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+}
+
+canvas {
+    background-color: #000;
+    display: none;
+}
+
+.menu {
+    background-color: #333;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.menu p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.difficulty-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.difficulty-btn:hover {
+    background-color: #666;
+}
+
+.difficulty-btn.active {
+    background-color: #4CAF50;
+}
+
+.start-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-btn:hover {
+    background-color: #45a049;
+}
